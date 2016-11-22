@@ -1,9 +1,11 @@
-FROM node:argon
+FROM node:latest
 EXPOSE 80
+EXPOSE 9229
 
 WORKDIR /app
 COPY package.json .
 RUN npm install
 COPY . .
 
-CMD ["node", "server.js"]
+CMD ["node","--inspect","./server.js"]
+

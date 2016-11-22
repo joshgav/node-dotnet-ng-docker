@@ -1,8 +1,8 @@
-var os = require('os');
+var os      = require('os');
 var request = require('request');
-var morgan = require('morgan');
+var morgan  = require('morgan');
 var express = require('express');
-var redis = connectToCache();
+var redis   = connectToCache();
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
@@ -34,7 +34,7 @@ app.get('/metrics', function (req, res) {
     });
 });
 
-var port = 80;
+var port = process.env.PORT || 80;
 var server = app.listen(port, function () {
     console.log('Listening on port ' + port);
 });

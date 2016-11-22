@@ -5,6 +5,7 @@ services:
         build: ./service-a
         ports:
             - "8080:80"
+            - "9229:9229"
         depends_on:
             - service-b
             - mycache

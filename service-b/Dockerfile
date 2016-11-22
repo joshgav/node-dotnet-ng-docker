@@ -5,3 +5,4 @@ WORKDIR /app
 COPY ./bin .
 
 CMD ["dotnet", "service-b.dll"]
+
