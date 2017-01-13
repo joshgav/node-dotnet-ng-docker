@@ -2,10 +2,14 @@
   "name": "service-a",
   "version": "0.1.0",
   "description": "Sample service for multi-container Docker app",
+  "main": "server.js",
   "dependencies": {
+    "applicationinsights": "^0.17.2",
     "express": "^4.13.4",
     "morgan": "^1.7.0",
     "redis": "^2.6.3",
-    "request": "^2.71.0"
+    "request": "^2.71.0",
+    "winston": "^2.3.0",
+    "winston-azure-application-insights": "^1.1.0"
   }
 }

@@ -1,5 +1,5 @@
 FROM node:latest
-EXPOSE 80
+EXPOSE 8080
 EXPOSE 9229
 
 WORKDIR /app
@@ -7,5 +7,5 @@ COPY package.json .
 RUN npm install
 COPY . .
 
-CMD ["node","--inspect","./server.js"]
+CMD ["node","--inspect","./bootstrap.js"]
 

@@ -1,22 +1,9 @@
-# Sample app for demonstrating continuous integration and deployment of a multi-container Docker app to Azure Container Service
-This repository contains a sample Azure multi-container Docker application.
+This repo contains a demo app with Node.js and .NET backends and an Angular frontend. The backend services are in Docker containers and created along with a Redis cache container by docker-compose.
 
-* service-a: Angular.js sample application with Node.js backend 
-* service-b: ASP .NET Core sample service
+Each component (.NET, Node.js, and HTML page) are instrumented with AppInsights.
+The instrumentation key for .NET and Node.js is picked up by docker-compose from
+a local .env file. The key for the HTML page is hardcoded (for now).
 
-## Run application locally
-First, compile the ASP .NET Core application code. This uses a container to isolate build dependencies that is also used by VSTS for continuous integration:
+The frontend service (service-a) is available at http://localhost:8080.
+It's also configured to support --inspect for debugging.
 
-```
-docker-compose -f docker-compose.ci.build.yml run ci-build
-```
-
-(On Windows, you currently need to pass the -d flag to docker-compose run and poll the container to determine when it has completed).
-
-Now build Docker images and run the services:
-
-```
-docker-compose up --build
-```
-
-The frontend service (service-a) will be available at http://localhost:8080.

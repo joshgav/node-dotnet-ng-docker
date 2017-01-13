@@ -4,20 +4,20 @@ services:
     service-a:
         build: ./service-a
         ports:
-            - "8080:80"
+            - "8080:8080"
             - "9229:9229"
         depends_on:
             - service-b
             - mycache
-        labels:
-            com.microsoft.acs.dcos.marathon.healthcheck.path: '/'
+        environment:
+            - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
 
     service-b:
         build: ./service-b
         expose:
             - "80"
-        labels:
-            com.microsoft.acs.dcos.marathon.healthcheck.path: '/'
+        environment:
+            - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
 
     mycache:
         image: redis:alpine
