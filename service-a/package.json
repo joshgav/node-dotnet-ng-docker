@@ -1,7 +1,7 @@
 {
   "name": "service-a",
   "version": "0.1.0",
-  "description": "Sample service for multi-container Docker app",
+  "description": "Node.js API service.",
   "main": "server.js",
   "dependencies": {
     "applicationinsights": "^0.17.2",

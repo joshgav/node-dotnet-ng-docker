@@ -6,7 +6,7 @@ var redis   = connectToCache();
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
-app.use(morgan("dev"));
+app.use(morgan("common"));
 
 // application -------------------------------------------------------------
 app.get('/', function (req, res) {
@@ -23,7 +23,7 @@ app.get('/api', function (req, res) {
 
     // Invoke service-b
     request('http://service-b', function (error, response, body) {
-        res.send('Hello from service A running on ' + os.hostname() + ' and ' + body);
+        res.send('Hello from service A running on ' + os.hostname() + ' and service B says: ' + body);
     });
 });
 
@@ -33,6 +33,7 @@ app.get('/metrics', function (req, res) {
         res.send({ requestCount: reply });
     });
 });
+// /end api -----------------------------------------------------------
 
 var port = process.env.PORT || 8080;
 var server = app.listen(port, function () {
