@@ -1,8 +1,8 @@
 version: "2"
 
 services:
-    service-a:
-        build: ./service-a
+    service-api:
+        build: ./service-api
         ports:
             - "8080:8080"
             - "9229:9229"

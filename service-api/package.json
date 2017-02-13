@@ -1,6 +1,6 @@
 {
-  "name": "service-a",
-  "version": "0.1.0",
+  "name": "service-api",
+  "version": "0.2.0",
   "description": "Node.js API service.",
   "main": "server.js",
   "dependencies": {
