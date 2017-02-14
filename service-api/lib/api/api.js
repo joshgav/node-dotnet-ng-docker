@@ -5,17 +5,17 @@ const request = require('request');
 const lutil = require('../util.js');
 const cache_client = lutil.cache_client();
 
-const dotnetHostname = 'service-b';
+const dotnetHostname = 'service-dotnet';
 
 exports = module.exports = function api (req, res) {
   // increment requestCount each time API is called
   cache_client.incr('requestCount', function (err, reply) {
-    if (err) console.err(err);
+    if (err) console.error(err);
   });
 
   // invoke dotnet service
   request(`http://${dotnetHostname}`, function (error, response, body) {
-    if (error) console.err(error);
+    if (error) console.error(error);
 
     res.send(
       [ 'Hello from service A running on',

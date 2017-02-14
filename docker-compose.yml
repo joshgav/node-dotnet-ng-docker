@@ -7,13 +7,13 @@ services:
             - "8080:8080"
             - "9229:9229"
         depends_on:
-            - service-b
+            - service-dotnet
             - mycache
         environment:
             - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
 
-    service-b:
-        build: ./service-b
+    service-dotnet:
+        build: ./service-dotnet
         expose:
             - "80"
         environment:

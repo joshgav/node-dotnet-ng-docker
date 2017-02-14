@@ -5,7 +5,7 @@ const cache_client = util.cache_client();
 
 exports = module.exports = function metrics (req,res) {
   cache_client.get('requestCount', function (err, reply) {
-    if (err) console.err(err);
+    if (err) console.error(err);
     res.send({ requestCount: reply });
   });
 };

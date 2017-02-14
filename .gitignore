@@ -1,7 +1,3 @@
-project.lock.json
 .env
-
-[Bb]in/
-[Oo]bj/
 node_modules/
 temp/
