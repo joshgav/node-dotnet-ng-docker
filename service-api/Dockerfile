@@ -3,8 +3,9 @@ EXPOSE 8080
 EXPOSE 9229
 
 WORKDIR /app
+RUN npm install --global typescript
 COPY ./third_party/app-insights ./third_party/app-insights
-RUN cd ./third_party/app-insights && npm run prepublish && cd /app
+RUN cd ./third_party/app-insights && npm install && npm run prepublish && cd /app
 COPY . .
 RUN npm install
 
