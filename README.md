@@ -1,4 +1,15 @@
-This repo contains a demo app with Node.js and .NET backends and an Angular frontend. The backend services are in Docker containers and created along with a Redis cache container by docker-compose.
+This repo contains a demo app with Node.js and .NET backends and an Angular
+frontend. The backend services are in Docker containers and created along with
+a Redis cache container by docker-compose.
+
+To run:
+
+```shell
+git clone <this_repo> && cd <this_repo>
+git submodule update --init
+echo APPINSIGHTS_INSTRUMENTATIONKEY=<your_ikey> > .env
+docker-compose up --build
+```
 
 Each component (.NET, Node.js, and HTML page) are instrumented with AppInsights.
 The instrumentation key for .NET and Node.js is picked up by docker-compose from
