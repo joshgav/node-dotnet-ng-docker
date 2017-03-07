@@ -4,7 +4,7 @@ var app           = require('./package.json');
 
 // start AppInsights data collection
 // APPINSIGHTS_INSTRUMENTATIONKEY env var must be set
-appinsights.setup().start();
+appinsights.setup().setAutoDependencyCorrelation(true).start();
 
 // capture console.log output as traces
 let original_log = console.log;
