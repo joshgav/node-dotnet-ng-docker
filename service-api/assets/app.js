@@ -4,7 +4,7 @@ var app = angular.module('myApp', ['ngRoute'])
     $scope.messages = [];
     $scope.sayHelloToServer = function() {
         $http.get("/api?_=" + Date.now()).then(function(response) {
-            $scope.messages.push(response.data);
+            $scope.messages.push({content: response.data, style: getStyle()});
 
             // Make request to /metrics            
             $http.get("/metrics?_=" + Date.now()).then(function(response) {
@@ -18,8 +18,8 @@ var app = angular.module('myApp', ['ngRoute'])
     var colors = ["black", "green", "red", "blue", "orange", "purple", "gray"];
     var colorIndex = 0;
     
-    $scope.getStyle = function() {
+    var getStyle = function() {
         if (colorIndex >= colors.length) colorIndex = 0;
-        return {color:`${colors[colorIndex++]}`};
+        return {color:colors[colorIndex++]};
     }
 });
