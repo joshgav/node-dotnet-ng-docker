@@ -47,9 +47,12 @@ namespace app {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            Random rnd = new Random();
+
             app.ApplicationServices.GetService<TelemetryClient>().Context.Properties["Service name"] = "service-dotnet";
 
             app.Run(async context => {
+                if (rnd.Next(100) < 5) { throw new Exception("Today is unlucky for you!"); }
                 await context.Response.WriteAsync("Hello from service B running on " + Environment.MachineName);
             });
         }

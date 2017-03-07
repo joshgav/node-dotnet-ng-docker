@@ -16,6 +16,14 @@ exports = module.exports = function api (req, res) {
   // invoke dotnet service
   request(`http://${dotnetHostname}`, function (error, response, body) {
     if (error) console.error(error);
+    
+    if (Math.random() < 0.05) {
+      res.status(500).send(
+        "Whoops, something broke! Zone: " +
+        (global.Zone || { current: { name: "no zone" }}).current.name
+      );
+      return;
+    }
 
     res.send(
       [ 'Hello from service A running on',
@@ -24,8 +32,5 @@ exports = module.exports = function api (req, res) {
         body
       ].join(' ')
     );
-
   });
-
 };
-
