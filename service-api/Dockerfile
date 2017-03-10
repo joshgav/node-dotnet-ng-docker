@@ -9,5 +9,5 @@ RUN cd ./third_party/app-insights && npm install && npm run prepublish && cd /ap
 COPY . .
 RUN npm install
 
-CMD ["node","--inspect","./bootstrap.js"]
+CMD ["node","--inspect=0.0.0.0:9229","./bootstrap.js"]
 
