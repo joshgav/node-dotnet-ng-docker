@@ -1,25 +1,25 @@
 version: "2"
 
 services:
-    service-api:
-        build: ./service-api
-        ports:
-            - "8080:8080"
-            - "9229:9229"
-        depends_on:
-            - service-dotnet
-            - mycache
-        environment:
-            - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
+  service-api:
+    build: ./service-api
+    ports:
+      - "8080:8080"
+      - "9229:9229"
+    depends_on:
+      - service-dotnet
+      - mycache
+    environment:
+      - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
 
-    service-dotnet:
-        build: ./service-dotnet
-        expose:
-            - "80"
-        environment:
-            - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
+  service-dotnet:
+    build: ./service-dotnet
+    expose:
+      - "80"
+    environment:
+      - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
 
-    mycache:
-        image: redis:alpine
-        expose:
-            - "6379"
+  mycache:
+    image: redis:alpine
+    expose:
+      - "6379"
