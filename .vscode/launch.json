@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "compounds": [{
+    "name": "Node+Browser",
+    "configurations": [ "Node", "Browser" ]
+  }],
+  "configurations": [{
+    "name": "Node",
+    "type":  "node",
+    "protocol":"inspector", 
+    "request": "attach",
+    "sourceMaps": false,
+    "port": 9229,
+    "localRoot": "${workspaceRoot}/service-api",
+    "remoteRoot": "/app",
+    "showAsyncStacks": true
+  },{
+    "name": "Browser",
+    "type": "chrome",
+    "request": "attach",
+    "port": 9222,
+    "url": "http://localhost:8080",
+    "webRoot": "${workspaceRoot}/service-api/assets",
+    "sourceMaps": false
+  },{
+    "name": "dotnet",
+    "type": "coreclr",
+    "request": "attach",
+    "processId": "${command:pickRemoteProcess}",
+    "pipeTransport": {
+      "pipeCwd": "${workspaceRoot}/service-dotnet",
+      "pipeProgram": "${workspaceRoot}/scripts/csharp-debug.sh",
+      "pipeArgs": [],
+      "debuggerPath": "/clrdbg/clrdbg"
+    } 
+  }]
+}
