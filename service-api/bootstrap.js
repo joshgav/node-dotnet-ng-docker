@@ -1,4 +1,5 @@
 var appinsights   = require('applicationinsights');
+var aithirdparty  = require('ai-thirdparty');
 var winston       = require('winston');
 var app           = require('./package.json');
 

@@ -23,3 +23,8 @@ services:
     image: redis:alpine
     expose:
       - "6379"
+
+  mymongo:
+    image: mongo:latest
+    expose:
+      - "27017"

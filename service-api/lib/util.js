@@ -1,7 +1,17 @@
 const redis = require('redis');
-const redisHostname = 'mycache';
+const mongo = require('mongodb');
 const path = require('path');
+
 var _cache_client = null;
+var _db = null;
+var _collection = null;
+
+const REDIS_HOSTNAME = 'mycache';
+const MONGO_HOSTNAME = 'mymongo';
+const MONGO_PORT     = '27017';
+const MONGO_DB_NAME  = 'vanpool';
+const MONGO_COLLECTION_NAME = 'riders';
+const MONGO_URL = `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB_NAME}`;
 
 var _dirs = {
   root_dir: path.resolve(path.join(__dirname, '..'))
@@ -10,14 +20,36 @@ _reset_dirs();
 
 exports = module.exports = {
   cache_client,
+  riders_collection,
   dirs
 }
 
+// TODO: promisify?
 function cache_client () {
   if (_cache_client) return _cache_client;
-  _cache_client = redis.createClient(`redis://${redisHostname}`);
+  _cache_client = redis.createClient(`redis://${REDIS_HOSTNAME}`);
   return _cache_client;
 }
+
+function riders_collection () {
+  return new Promise((resolve, reject) => {
+    if (_collection) resolve(_collection);
+
+    mongo.MongoClient.connect(MONGO_URL, (err, db) => {
+      if (err) reject(err);
+
+      _db = db;
+
+      db.collection(MONGO_COLLECTION_NAME, (err, coll) => {
+        if (err) reject (err);
+
+        _collection = coll;
+        resolve(_collection);
+      });
+    });
+  });
+}
+
 
 function dirs (root_dir) {
   root_dir = path.resolve(root_dir);

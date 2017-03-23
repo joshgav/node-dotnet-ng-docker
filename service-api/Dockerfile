@@ -4,8 +4,12 @@ EXPOSE 9229
 
 WORKDIR /app
 RUN npm install --global typescript
-COPY ./third_party/app-insights ./third_party/app-insights
-RUN cd ./third_party/app-insights && npm install && npm run prepublish && cd /app
+
+COPY ./third_party ./third_party
+RUN cd ./third_party/applicationinsights && npm install && npm run prepublish && cd ../..
+RUN cd ./third_party/ai-thirdparty && npm install && npm run prepublish && cd ../..
+
+# node_modules ignored via .dockerignore
 COPY . .
 RUN npm install
 

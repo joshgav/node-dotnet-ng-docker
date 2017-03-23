@@ -18,3 +18,9 @@ a local .env file. The key for the HTML page is hardcoded (for now).
 The frontend service (service-api) is available at http://localhost:8080.
 It's also configured to support --inspect for debugging.
 
+Things to try:
+
+* Browse to http://localhost:8080 and click button.
+* `curl -d '{"name":"Josh","direction":"work","date":"2017-03-22"}' -H "Content-Type: application/json" http://localhost:8080/riders`
+* `curl http://localhost:8080/riders`
+
