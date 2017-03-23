@@ -1,7 +1,12 @@
 const path = require('path');
-const lutil = require('./util.js');
+const util = require('./util.js');
+const ejs  = require('ejs');
 
 exports = module.exports = function main (req, res) {
-  res.sendFile(path.join(util.dirs().assets_dir, 'index.html'));
+  const index = path.join(util.dirs().assets_dir, 'index.ejs');
+  ejs.renderFile(index, {ikey: process.env.APPINSIGHTS_INSTRUMENTATIONKEY}, {cache: false}, (err, str) => {
+    if (err) console.log(err);
+    res.status('200').send(str);
+  });
 }
 

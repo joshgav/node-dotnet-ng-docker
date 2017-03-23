@@ -2,8 +2,8 @@ const path    = require('path');
 const morgan  = require('morgan');
 const express = require('express');
 
-const lutil = require('./lib/util.js');
-const dirs = lutil.dirs(__dirname);
+const util = require('./lib/util.js');
+const dirs = util.dirs(__dirname);
 
 var app = express();
 app.use(express.static(dirs.assets_dir));

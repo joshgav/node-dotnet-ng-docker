@@ -52,6 +52,8 @@ function riders_collection () {
 
 
 function dirs (root_dir) {
+  if (!root_dir) return _dirs;
+
   root_dir = path.resolve(root_dir);
   if (root_dir && root_dir !== _dirs.root_dir) {
     _dirs.root_dir = root_dir;
