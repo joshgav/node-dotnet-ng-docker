@@ -1,6 +1,9 @@
 const dotenv        = require('dotenv').config();
 const appInsights   = require('applicationinsights');
+const diagChannel   = require('diagnostic-source').channel;
 const pkg           = require('./package.json');
+
+diagChannel.autoLoadPackages(__dirname);
 
 if (!process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
   process.exitCode = 2;
@@ -16,24 +19,6 @@ appInsights.setup()
   .setAutoCollectExceptions(true)
   .setAutoCollectDependencies(true)
   .start();
-
-// capture console.log output as traces
-let original_log = console.log;
-console.log = function new_log(message) {
-  appInsights.getClient().trackEvent(message);
-  original_log(message);
-}
-
-// register AppInsights to capture Winston traces
-const winston = require('winston');
-const winstonAiTransport =
-  require('winston-azure-application-insights')
-  .AzureApplicationInsightsLogger;
-
-winston.add(winstonAiTransport, {
-  client: appInsights.getClient()
-});
-winston.info("AppInsights transport added to Winston.");
 
 // run the user's app
 require(`./${pkg.main}`);

@@ -4,8 +4,14 @@
   "description": "Node.js API service.",
   "main": "server.js",
   "dependencies": {
-    "ai-thirdparty": "./third_party/ai-thirdparty",
     "applicationinsights": "./third_party/applicationinsights",
+    "diagnostic-source": "./third_party/node-diagnostic-source/src/diagnostic-source",
+    "applicationinsights-pubsub-subs": "./third_party/node-diagnostic-source/src/subs/ai-subs",
+    "console-pub": "./third_party/node-diagnostic-source/src/pubs/console-pub",
+    "mongodb-pub": "./third_party/node-diagnostic-source/src/pubs/mongodb-pub",
+    "redis-pub": "./third_party/node-diagnostic-source/src/pubs/redis-pub",
+    "bunyan-pub": "./third_party/node-diagnostic-source/src/pubs/bunyan-pub",
+    "mysql-pub": "./third_party/node-diagnostic-source/src/pubs/mysql-pub",
     "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
@@ -16,5 +22,8 @@
     "request": "^2.71.0",
     "winston": "^2.3.0",
     "winston-azure-application-insights": "^1.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.2.2"
   }
 }

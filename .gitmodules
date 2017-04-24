@@ -2,6 +2,6 @@
 	path = service-api/third_party/applicationinsights
 	url = https://github.com/Microsoft/ApplicationInsights-node.js
 	branch = develop
-[submodule "service-api/third_party/ai-thirdparty"]
-	path = service-api/third_party/ai-thirdparty
-	url = https://github.com/MSLaguana/ai-third-party-patches
+[submodule "service-api/third_party/node-diagnostic-source"]
+	path = service-api/third_party/node-diagnostic-source
+	url = https://github.com/microsoft/node-diagnostic-source
