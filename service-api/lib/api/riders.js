@@ -31,13 +31,12 @@ function putOne (req, res) {
       direction: req.body.direction,
       date: req.body.date
     })
-    .then((err, result) => {
-      if (err) {
-        console.log(err);
-        res.status('401').send(err);
-      } else {
-        res.status('200').send(`Inserted ${result.insertedCount} records.`);
-      }
+    .then((result) => {
+      res.status('200').send(`Inserted ${result.insertedCount} records.\n`);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status('401').send(err);
     });
   });
 }
