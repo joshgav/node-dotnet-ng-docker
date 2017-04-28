@@ -1,9 +1,14 @@
 const dotenv        = require('dotenv').config();
 const appInsights   = require('applicationinsights');
-const diagChannel   = require('diagnostic-source').channel;
 const pkg           = require('./package.json');
 
+// to be removed once integrated in AI
+const diagChannel   = require('diagnostic-source').channel;
 diagChannel.autoLoadPackages(__dirname);
+diagChannel.addContextPreservation((cb) => {
+  return Zone.current.wrap(cb, "AI-ContextPreservation");
+});
+// /end
 
 if (!process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
   process.exitCode = 2;
