@@ -5,7 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "applicationinsights": "./third_party/applicationinsights",
-    "diagnostic-source": "./third_party/node-diagnostic-source/src/diagnostic-source",
+    "diagnostic-channel": "./third_party/node-diagnostic-source/src/diagnostic-channel",
     "applicationinsights-pubsub-subs": "./third_party/node-diagnostic-source/src/subs/ai-subs",
     "console-pub": "./third_party/node-diagnostic-source/src/pubs/console-pub",
     "mongodb-pub": "./third_party/node-diagnostic-source/src/pubs/mongodb-pub",

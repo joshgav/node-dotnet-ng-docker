@@ -3,7 +3,7 @@ const appInsights   = require('applicationinsights');
 const pkg           = require('./package.json');
 
 // to be removed once integrated in AI
-const diagChannel   = require('diagnostic-source').channel;
+const diagChannel   = require('diagnostic-channel').channel;
 diagChannel.autoLoadPackages(__dirname);
 diagChannel.addContextPreservation((cb) => {
   return Zone.current.wrap(cb, "AI-ContextPreservation");
