@@ -7,7 +7,7 @@ RUN npm install --global typescript
 
 COPY ./third_party ./third_party
 RUN cd ./third_party/applicationinsights && npm install --unsafe-perm && cd ../..
-RUN cd ./third_party/node-diagnostic-source && ./prepare.sh && cd ../..
+RUN cd ./third_party/node-diagnostic-source && ./install.sh && cd ../..
 
 # node_modules ignored via .dockerignore
 COPY . .
