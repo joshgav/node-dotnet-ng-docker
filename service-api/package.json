@@ -5,13 +5,6 @@
   "main": "server.js",
   "dependencies": {
     "applicationinsights": "./third_party/applicationinsights",
-    "diagnostic-channel": "./third_party/node-diagnostic-source/src/diagnostic-channel",
-    "applicationinsights-pubsub-subs": "./third_party/node-diagnostic-source/src/subs/ai-subs",
-    "console-pub": "./third_party/node-diagnostic-source/src/pubs/console-pub",
-    "mongodb-pub": "./third_party/node-diagnostic-source/src/pubs/mongodb-pub",
-    "redis-pub": "./third_party/node-diagnostic-source/src/pubs/redis-pub",
-    "bunyan-pub": "./third_party/node-diagnostic-source/src/pubs/bunyan-pub",
-    "mysql-pub": "./third_party/node-diagnostic-source/src/pubs/mysql-pub",
     "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.6",

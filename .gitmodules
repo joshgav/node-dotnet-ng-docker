@@ -2,6 +2,3 @@
 	path = service-api/third_party/applicationinsights
 	url = https://github.com/Microsoft/ApplicationInsights-node.js
 	branch = develop
-[submodule "service-api/third_party/node-diagnostic-source"]
-	path = service-api/third_party/node-diagnostic-source
-	url = https://github.com/microsoft/node-diagnostic-source
