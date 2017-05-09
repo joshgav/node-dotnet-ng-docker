@@ -11,6 +11,7 @@ if (!process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
 // APPINSIGHTS_INSTRUMENTATIONKEY env var must be set
 appInsights.setup()
   .setAutoDependencyCorrelation(true)
+  .setAutoCollectConsole(true)
   .setAutoCollectRequests(true)
   .setAutoCollectPerformance(true)
   .setAutoCollectExceptions(true)

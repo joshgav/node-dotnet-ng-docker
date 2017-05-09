@@ -1,4 +1,4 @@
-FROM node:7.7.3
+FROM node:latest
 EXPOSE 8080
 EXPOSE 9229
 
