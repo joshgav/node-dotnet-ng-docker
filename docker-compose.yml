@@ -14,8 +14,8 @@ services:
 
   service-dotnet:
     build: ./service-dotnet
-    expose:
-      - "80"
+    ports:
+      - "80:80"
     environment:
       - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
 
