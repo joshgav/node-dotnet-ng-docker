@@ -5,7 +5,7 @@ const request = require('request');
 const lutil = require('../util.js');
 const cache_client = lutil.cache_client();
 
-const dotnetHostname = 'service-dotnet';
+const dotnetHostname = 'api-11';
 
 exports = module.exports = function api (req, res) {
   // increment requestCount each time API is called

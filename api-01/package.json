@@ -1,0 +1,23 @@
+{
+  "name": "api-01",
+  "private": "true",
+  "version": "0.2.1",
+  "description": "Node.js API service.",
+  "main": "server.js",
+  "dependencies": {
+    "applicationinsights": "~0.20",
+    "body-parser": "^1",
+    "dotenv": "^4",
+    "ejs": "^2",
+    "express": "^4",
+    "mongodb": "^2",
+    "morgan": "^1",
+    "redis": "^2",
+    "request": "^2",
+    "winston": "^2",
+    "winston-azure-application-insights": "~1.1"
+  },
+  "devDependencies": {
+    "typescript": "~2.3"
+  }
+}

@@ -11,7 +11,7 @@
     "request": "attach",
     "sourceMaps": false,
     "port": 9229,
-    "localRoot": "${workspaceRoot}/service-api",
+    "localRoot": "${workspaceRoot}/api-01",
     "remoteRoot": "/app",
     "showAsyncStacks": true
   },{
@@ -20,7 +20,7 @@
     "request": "attach",
     "port": 9222,
     "url": "http://localhost:8080",
-    "webRoot": "${workspaceRoot}/service-api/assets",
+    "webRoot": "${workspaceRoot}/api-01/assets",
     "sourceMaps": false
   },{
     "name": "dotnet",
@@ -28,7 +28,7 @@
     "request": "attach",
     "processId": "${command:pickRemoteProcess}",
     "pipeTransport": {
-      "pipeCwd": "${workspaceRoot}/service-dotnet",
+      "pipeCwd": "${workspaceRoot}/api-11",
       "pipeProgram": "${workspaceRoot}/scripts/csharp-debug.sh",
       "pipeArgs": [],
       "debuggerPath": "/clrdbg/clrdbg"

@@ -1,4 +1,0 @@
-[submodule "service-api/third_party/applicationinsights"]
-	path = service-api/third_party/applicationinsights
-	url = https://github.com/Microsoft/ApplicationInsights-node.js
-	branch = develop
