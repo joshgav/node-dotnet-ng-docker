@@ -7,16 +7,31 @@ services:
       - "8080:8080"
       - "9229:9229"
     depends_on:
+      - api-02
       - api-11
       - mycache
       - mymongo
     environment:
       - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
 
+  api-02:
+    build: ./api-02
+    expose:
+      - "8080"
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mymongo
+      - mycache
+    environment:
+      - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
+
   api-11:
     build: ./api-11
+    expose:
+      - "80"
     ports:
-      - "80:80"
+      - "8082:80"
     environment:
       - APPINSIGHTS_INSTRUMENTATIONKEY=${APPINSIGHTS_INSTRUMENTATIONKEY}
 

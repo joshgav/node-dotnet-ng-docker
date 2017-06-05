@@ -1,0 +1,19 @@
+enum Direction { TO_WORK, TO_HOME }
+
+type Date {
+  year: Int
+  month: Int
+  day: Int
+}
+
+type Rider {
+  name: String!
+  direction: Direction!
+  date: Date!
+}
+
+type Query {
+  ridersForDate(date: String): [Rider]
+  datesForRider(name: String): [Rider]
+}
+
