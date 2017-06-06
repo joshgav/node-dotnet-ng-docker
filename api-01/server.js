@@ -16,6 +16,7 @@ app.get('/api', require(`${dirs.api_dir}/api.js`));
 app.get('/metrics', require(`${dirs.api_dir}/metrics.js`));
 app.get('/riders', require(`${dirs.api_dir}/riders.js`).getAll);
 app.post('/riders', require(`${dirs.api_dir}/riders.js`).putOne);
+app.get('/riders2', require(`${dirs.api_dir}/riders2.js`).ridersForDate);
 
 var port = process.env.PORT || 8080;
 var server = app.listen(port, () => {
