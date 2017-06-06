@@ -25,8 +25,8 @@ function ridersForDate(req, res) {
     json: { query: GQL_TEMPLATE.replace(/$__date__/, req.query.date) }
   }, (error, response, body) => {
     console.log(`[raw]: ${JSON.stringify(body)}`);
-    if (json.errors) { res.send(JSON.stringify(json)); }
-    else { res.send(json.data.ridersForDate); }
+    if (body.errors) { res.send(JSON.stringify(body)); }
+    else { res.send(body.data.ridersForDate); }
   });
 }
 

@@ -10,21 +10,17 @@ const dotnetHostname = 'api-11';
 exports = module.exports = function api (req, res) {
   // increment requestCount each time API is called
   cache_client.incr('requestCount', function (err, reply) {
-    if (err) console.error(err);
+    if (err) console.error(`[redis]: ${err}`);
   });
 
   // invoke dotnet service
   request(`http://${dotnetHostname}`, function (error, response, body) {
-    if (error) console.error(error);
-    
-    if (Math.random() < 0.05) {
-      res.status(500).send(
-        "Whoops, something broke! Zone: " +
-        (global.Zone || { current: { name: "no zone" }}).current.name
-      );
+    if (error || response.statusCode > 200) {
+      if (error) console.error(error);
+      res.status(500).send('second-tier service failure');
       return;
     }
-
+    
     res.send(
       [ 'Hello from service A running on',
         os.hostname(),
@@ -34,3 +30,4 @@ exports = module.exports = function api (req, res) {
     );
   });
 };
+
